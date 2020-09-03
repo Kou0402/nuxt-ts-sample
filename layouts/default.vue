@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <MainHeader></MainHeader>
     <Nuxt />
   </div>
 </template>
@@ -8,11 +8,11 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import Header from '~/components/header/header.vue'
+import MainHeader from '~/components/header/MainHeader.vue'
 
 export default Vue.extend({
   components: {
-    Header,
+    MainHeader,
   },
 })
 </script>
