@@ -1,9 +1,15 @@
 <template>
-  <div class="p-6 border-2 container">コンテナ</div>
+  <MainThread></MainThread>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+import MainThread from '~/components/thread/MainThread.vue'
+
+export default Vue.extend({
+  components: {
+    MainThread,
+  },
+})
 </script>
