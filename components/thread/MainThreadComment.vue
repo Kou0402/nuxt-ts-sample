@@ -1,9 +1,24 @@
 <template>
   <article class="w-5/6">
     <h3 class="mb-1">
-      <span>スズキ</span>
-      <span>2020-01-01 10:10:10</span>
+      <span>{{ post.createdUserName }}</span>
+      <span>{{ post.createdAt }}</span>
     </h3>
-    <p class="px-4">コメントコメントコメントコメントコメントコメントコメント</p>
+    <p class="px-4">{{ post.comment }}</p>
   </article>
 </template>
+
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
+
+import { Post } from '~/models/post'
+
+export default Vue.extend({
+  props: {
+    post: {
+      type: Object,
+      required: true,
+    } as PropOptions<Post>,
+  },
+})
+</script>
