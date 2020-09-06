@@ -5,8 +5,8 @@
       <input
         :value="name"
         type="text"
-        @input="$emit('update:name', $event.target.value)"
         class="border-2 w-full"
+        @input="$emit('update:name', $event.target.value)"
       />
     </div>
     <div class="flex">
@@ -14,8 +14,8 @@
       <input
         :value="comment"
         type="text"
-        @input="$emit('update:comment', $event.target.value)"
         class="border-2 w-full"
+        @input="$emit('update:comment', $event.target.value)"
       />
     </div>
   </section>

@@ -7,7 +7,11 @@
       :post="post"
       class="mx-auto mb-6"
     ></MainThreadComment>
-    <MainThreadForm :name.sync="name" :comment.sync="comment" class="mx-auto"></MainThreadForm>
+    <MainThreadForm
+      :name.sync="name"
+      :comment.sync="comment"
+      class="mx-auto"
+    ></MainThreadForm>
   </section>
 </template>
 
