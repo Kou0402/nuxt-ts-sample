@@ -1,3 +1,5 @@
+import { colors } from 'tailwindcss/defaultTheme'
+
 /*
  ** TailwindCSS Configuration File
  **
@@ -8,7 +10,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        blue: '#1D25AD',
+        blue: {
+          default: '#1D25AD',
+          ...colors.blue,
+        },
+        indigo: {
+          default: '#1a1d61',
+          ...colors.indigo,
+        },
       },
     },
   },
