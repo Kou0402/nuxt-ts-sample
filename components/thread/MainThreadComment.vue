@@ -9,16 +9,16 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from 'vue'
+import Vue from 'vue'
 
 import { Post } from '~/models/post'
 
 export default Vue.extend({
   props: {
     post: {
-      type: Object,
+      type: Object as () => Post,
       required: true,
-    } as PropOptions<Post>,
+    },
   },
 })
 </script>

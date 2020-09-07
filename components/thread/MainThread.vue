@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from 'vue'
+import Vue from 'vue'
 
 import MainThreadComment from '~/components/thread/MainThreadComment.vue'
 import MainThreadForm from '~/components/thread/MainThreadForm.vue'
@@ -29,10 +29,10 @@ export default Vue.extend({
   },
   props: {
     posts: {
-      type: Array,
+      type: Array as () => Post[],
       required: false,
       default: undefined,
-    } as PropOptions<Post[]>,
+    },
   },
   data() {
     return {
