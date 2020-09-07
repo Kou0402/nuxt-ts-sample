@@ -16,38 +16,26 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropOptions } from 'vue'
 
 import MainThreadComment from '~/components/thread/MainThreadComment.vue'
 import MainThreadForm from '~/components/thread/MainThreadForm.vue'
 import { Post } from '~/models/post'
-
-const postsSample: Post[] = [
-  {
-    createdUserName: 'スズキ',
-    createdAt: new Date(),
-    comment: 'コメントコメントコメントコメントコメントコメントコメント',
-  },
-  {
-    createdUserName: 'タナカ',
-    createdAt: new Date(),
-    comment: 'コメントコメントコメントコメントコメントコメントコメント',
-  },
-  {
-    createdUserName: 'コバヤシ',
-    createdAt: new Date(),
-    comment: 'コメントコメントコメントコメントコメントコメントコメント',
-  },
-]
 
 export default Vue.extend({
   components: {
     MainThreadComment,
     MainThreadForm,
   },
+  props: {
+    posts: {
+      type: Array,
+      required: false,
+      default: undefined,
+    } as PropOptions<Post[]>,
+  },
   data() {
     return {
-      posts: postsSample,
       name: '',
       comment: '',
     }
