@@ -23,7 +23,7 @@ export class PostRepository {
     return fetchedPostResponses
   }
 
-  async save(payload: SavePostRequest) {
+  async save(payload: SavePostRequest): Promise<void> {
     // TODO: エラー処理
     await this.db.collection('posts').add(payload)
   }
