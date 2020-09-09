@@ -36,10 +36,14 @@ export default class PostsStore extends VuexModule {
   }
 
   @Action
-  public async save(payload: SavePostRequest): Promise<void> {
+  public async save(post: Post): Promise<void> {
     const postRepository: PostRepository = new PostRepository()
-    payload.createdAt = firebase.firestore.FieldValue.serverTimestamp()
-    await postRepository.save(payload)
+    const savePostRequest: SavePostRequest = {
+      createdUserName: post.createdUserName,
+      comment: post.comment,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    }
+    await postRepository.save(savePostRequest)
     this.fetchAll()
   }
 }

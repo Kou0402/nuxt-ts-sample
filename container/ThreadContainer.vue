@@ -13,7 +13,6 @@ import Vue from 'vue'
 import { postsStore } from '~/store'
 import { Post } from '~/models/post'
 import MainThread from '~/components/thread/MainThread.vue'
-import { SavePostRequest } from '~/models/payload/post-payload'
 
 export default Vue.extend({
   components: {
@@ -35,11 +34,11 @@ export default Vue.extend({
   },
   methods: {
     savePost() {
-      const savePostRequest: SavePostRequest = {
+      const post: Post = {
         createdUserName: this.name,
         comment: this.comment,
       }
-      postsStore.save(savePostRequest)
+      postsStore.save(post)
     },
   },
 })

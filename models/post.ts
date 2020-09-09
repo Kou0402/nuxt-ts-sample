@@ -1,5 +1,5 @@
 export interface Post {
   createdUserName: string
-  createdAt: Date
+  createdAt?: Date
   comment: string
 }
