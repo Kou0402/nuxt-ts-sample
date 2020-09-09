@@ -8,6 +8,6 @@ export interface FetchedPostResponse {
 
 export interface SavePostRequest {
   createdUserName: string
-  createdAt?: any
+  createdAt?: firebase.firestore.FieldValue
   comment: string
 }
