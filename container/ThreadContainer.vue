@@ -33,12 +33,17 @@ export default Vue.extend({
     await postsStore.fetchAll()
   },
   methods: {
-    savePost() {
+    async savePost() {
       const post: Post = {
         createdUserName: this.name,
         comment: this.comment,
       }
-      postsStore.save(post)
+      await postsStore.save(post)
+      this.clearForm()
+    },
+    clearForm() {
+      this.name = ''
+      this.comment = ''
     },
   },
 })

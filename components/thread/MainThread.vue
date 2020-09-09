@@ -9,6 +9,8 @@
     ></MainThreadComment>
     <MainThreadForm
       class="mx-auto"
+      :name="name"
+      :comment="comment"
       @update:name="$emit('update:name', $event)"
       @update:comment="$emit('update:comment', $event)"
       @click-post-button="$emit('click-post-button')"
@@ -33,6 +35,16 @@ export default Vue.extend({
       type: Array as () => Post[],
       required: false,
       default: undefined,
+    },
+    name: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    comment: {
+      type: String,
+      required: false,
+      default: '',
     },
   },
 })
