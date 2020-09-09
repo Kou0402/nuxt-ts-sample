@@ -1,7 +1,7 @@
 <template>
   <section class="w-5/6">
     <div class="flex mb-2">
-      <label class="inline-block w-24">名前</label>
+      <label class="inline-block w-24 font-bold">名前</label>
       <input
         :value="name"
         type="text"
@@ -10,7 +10,7 @@
       />
     </div>
     <div class="flex mb-4">
-      <label class="inline-block w-24">コメント</label>
+      <label class="inline-block w-24 font-bold">コメント</label>
       <input
         :value="comment"
         type="text"
