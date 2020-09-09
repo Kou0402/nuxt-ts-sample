@@ -20,6 +20,7 @@
     </div>
     <button
       class="bg-blue hover:bg-blue-600 text-white font-bold py-2 px-4 border-b-2 border-black hover:border-blue-400 rounded"
+      @click="$emit('click-post-button')"
     >
       投稿
     </button>

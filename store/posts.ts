@@ -1,8 +1,12 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators'
 
+import firebase from '~/plugins/firebase'
 import { PostRepository } from '~/repositories/post-repository'
 import { Post } from '~/models/post'
-import { FetchedPostResponse } from '~/models/payload/post-payload'
+import {
+  FetchedPostResponse,
+  SavePostRequest,
+} from '~/models/payload/post-payload'
 
 @Module({ stateFactory: true, namespaced: true, name: 'posts' })
 export default class PostsStore extends VuexModule {
@@ -29,5 +33,13 @@ export default class PostsStore extends VuexModule {
       posts.push(post)
     })
     this.setItems(posts)
+  }
+
+  @Action
+  public async save(payload: SavePostRequest): Promise<void> {
+    const postRepository: PostRepository = new PostRepository()
+    payload.createdAt = firebase.firestore.FieldValue.serverTimestamp()
+    await postRepository.save(payload)
+    this.fetchAll()
   }
 }

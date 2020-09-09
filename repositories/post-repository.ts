@@ -1,6 +1,9 @@
 import firebase from '~/plugins/firebase'
 
-import { FetchedPostResponse } from '~/models/payload/post-payload'
+import {
+  FetchedPostResponse,
+  SavePostRequest,
+} from '~/models/payload/post-payload'
 
 export class PostRepository {
   private db: firebase.firestore.Firestore = firebase.firestore()
@@ -17,5 +20,10 @@ export class PostRepository {
         })
       })
     return fetchedPostResponses
+  }
+
+  async save(payload: SavePostRequest) {
+    // TODO: エラー処理
+    await this.db.collection('posts').add(payload)
   }
 }

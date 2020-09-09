@@ -5,3 +5,9 @@ export interface FetchedPostResponse {
   createdAt: firebase.firestore.Timestamp
   comment: string
 }
+
+export interface SavePostRequest {
+  createdUserName: string
+  createdAt?: any
+  comment: string
+}

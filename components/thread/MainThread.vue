@@ -8,9 +8,10 @@
       class="mx-auto mb-6"
     ></MainThreadComment>
     <MainThreadForm
-      :name.sync="name"
-      :comment.sync="comment"
       class="mx-auto"
+      @update:name="$emit('update:name', $event)"
+      @update:comment="$emit('update:comment', $event)"
+      @click-post-button="$emit('click-post-button')"
     ></MainThreadForm>
   </section>
 </template>
@@ -33,12 +34,6 @@ export default Vue.extend({
       required: false,
       default: undefined,
     },
-  },
-  data() {
-    return {
-      name: '',
-      comment: '',
-    }
   },
 })
 </script>
