@@ -1,10 +1,12 @@
 <template>
-  <MainThread
-    :name.sync="name"
-    :comment.sync="comment"
-    :posts="posts"
-    @click-post-button="savePost"
-  ></MainThread>
+  <div>
+    <MainThread
+      :name.sync="name"
+      :comment.sync="comment"
+      :posts="posts"
+      @click-post-button="savePost"
+    ></MainThread>
+  </div>
 </template>
 
 <script lang="ts">

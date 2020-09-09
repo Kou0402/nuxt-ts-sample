@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center my-6">
+  <div class="my-6">
     <ThreadContainer></ThreadContainer>
   </div>
 </template>

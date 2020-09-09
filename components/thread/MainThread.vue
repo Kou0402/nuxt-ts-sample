@@ -1,5 +1,5 @@
 <template>
-  <section class="p-6 border-2 container">
+  <section class="container mx-auto p-6 border-2">
     <h2 class="mb-4 text-3xl">掲示板</h2>
     <MainThreadComment
       v-for="post in posts"
