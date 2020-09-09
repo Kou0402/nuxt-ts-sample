@@ -42,7 +42,6 @@ export default Vue.extend({
       this.clearForm()
     },
     clearForm() {
-      this.name = ''
       this.comment = ''
     },
   },
