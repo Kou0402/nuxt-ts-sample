@@ -12,6 +12,7 @@ export class PostRepository {
     const fetchedPostResponses: FetchedPostResponse[] = []
     await this.db
       .collection('posts')
+      .orderBy('createdAt')
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((document) => {
