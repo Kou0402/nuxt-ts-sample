@@ -3,7 +3,7 @@
     <h2 class="mb-4 text-3xl">掲示板</h2>
     <MainThreadComment
       v-for="post in posts"
-      :key="post.createdUserName"
+      :key="post.comment"
       :post="post"
       class="mx-auto mb-6"
     ></MainThreadComment>

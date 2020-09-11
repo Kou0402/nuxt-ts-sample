@@ -24,7 +24,6 @@ export class PostRepository {
   }
 
   async save(payload: SavePostRequest): Promise<void> {
-    // TODO: エラー処理
     await this.db.collection('posts').add(payload)
   }
 }

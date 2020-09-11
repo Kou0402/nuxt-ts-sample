@@ -1,6 +1,7 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators'
-
 import firebase from '~/plugins/firebase'
+
+import { globalMessageStore } from '~/store'
 import { PostRepository } from '~/repositories/post-repository'
 import { Post } from '~/models/post'
 import {
@@ -20,8 +21,15 @@ export default class PostsStore extends VuexModule {
   @Action
   public async fetchAll(): Promise<void> {
     const postRepository: PostRepository = new PostRepository()
-    // TODO: エラー処理
-    const fetchPostResponses: FetchedPostResponse[] = await postRepository.fetchAll()
+    const fetchPostResponses: FetchedPostResponse[] = await postRepository
+      .fetchAll()
+      .catch(() => {
+        globalMessageStore.setItem({
+          message: 'システムエラーが発生しました。管理者に連絡してください。',
+          isError: true,
+        })
+        return []
+      })
     // データ変換を行う
     const posts: Post[] = []
     fetchPostResponses.forEach((fetchPostResponse) => {
