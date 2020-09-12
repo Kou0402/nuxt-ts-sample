@@ -8,6 +8,7 @@ import {
   FetchedPostResponse,
   SavePostRequest,
 } from '~/models/payload/post-payload'
+import { MESSAGE } from '~/constants/message'
 
 @Module({ stateFactory: true, namespaced: true, name: 'posts' })
 export default class PostsStore extends VuexModule {
@@ -25,7 +26,7 @@ export default class PostsStore extends VuexModule {
       .fetchAll()
       .catch(() => {
         globalMessageStore.setItem({
-          message: 'システムエラーが発生しました。管理者に連絡してください。',
+          message: MESSAGE.Error.FirestoreNotAvailable,
           isError: true,
         })
         return []
