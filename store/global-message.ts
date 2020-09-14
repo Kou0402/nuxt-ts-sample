@@ -2,7 +2,7 @@ import { VuexModule, Module, Mutation } from 'vuex-module-decorators'
 
 import { GlobalMessage } from '~/models/global-message'
 
-@Module({ namespaced: true, name: 'global-message' })
+@Module({ stateFactory: true, namespaced: true, name: 'global-message' })
 export default class GlobalMessageStore extends VuexModule {
   public globalMessage: GlobalMessage = {}
 
