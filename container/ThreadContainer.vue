@@ -5,6 +5,7 @@
       :comment.sync="comment"
       :posts="posts"
       @click-post-button="savePost"
+      @click-error-button="testError"
     ></MainThread>
   </div>
 </template>
@@ -42,6 +43,9 @@ export default Vue.extend({
       }
       await postsStore.save(post)
       this.clearForm()
+    },
+    testError() {
+      postsStore.testError()
     },
     clearForm() {
       this.comment = ''

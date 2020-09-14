@@ -64,4 +64,17 @@ export default class PostsStore extends VuexModule {
     })
     this.fetchAll()
   }
+
+  @Action
+  public testError(): void {
+    const postRepository: PostRepository = new PostRepository()
+    postRepository.testError().catch((error) => {
+      // eslint-disable-next-line no-console
+      console.error(error)
+      globalMessageStore.setItem({
+        message: MESSAGE.Error.FirestoreNotAvailable,
+        level: 'Error',
+      })
+    })
+  }
 }

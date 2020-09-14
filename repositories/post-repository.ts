@@ -26,4 +26,8 @@ export class PostRepository {
   async save(payload: SavePostRequest): Promise<void> {
     await this.db.collection('posts').add(payload)
   }
+
+  async testError(): Promise<void> {
+    await this.db.collection('error').get()
+  }
 }

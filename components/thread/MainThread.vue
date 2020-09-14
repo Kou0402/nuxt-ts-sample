@@ -14,6 +14,7 @@
       @update:name="$emit('update:name', $event)"
       @update:comment="$emit('update:comment', $event)"
       @click-post-button="$emit('click-post-button')"
+      @click-error-button="$emit('click-error-button')"
     ></MainThreadForm>
   </section>
 </template>
