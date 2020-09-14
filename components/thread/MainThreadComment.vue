@@ -1,10 +1,12 @@
 <template>
   <article class="w-5/6">
     <h3 class="mb-1">
-      <span class="font-bold">{{ post.createdUserName }}</span>
-      <span>{{ post.createdAt | moment }}</span>
+      <span class="font-bold" data-testid="createdUserName">{{
+        post.createdUserName
+      }}</span>
+      <span data-testid="createdAt">{{ post.createdAt | moment }}</span>
     </h3>
-    <p class="px-4">{{ post.comment }}</p>
+    <p class="px-4" data-testid="comment">{{ post.comment }}</p>
   </article>
 </template>
 
