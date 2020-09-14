@@ -24,7 +24,9 @@ export default class PostsStore extends VuexModule {
     const postRepository: PostRepository = new PostRepository()
     const fetchPostResponses: FetchedPostResponse[] = await postRepository
       .fetchAll()
-      .catch(() => {
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error)
         globalMessageStore.setItem({
           message: MESSAGE.Error.FirestoreNotAvailable,
           level: 'Error',
@@ -52,7 +54,14 @@ export default class PostsStore extends VuexModule {
       comment: post.comment,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     }
-    await postRepository.save(savePostRequest)
+    await postRepository.save(savePostRequest).catch((error) => {
+      // eslint-disable-next-line no-console
+      console.error(error)
+      globalMessageStore.setItem({
+        message: MESSAGE.Error.FirestoreNotAvailable,
+        level: 'Error',
+      })
+    })
     this.fetchAll()
   }
 }
