@@ -27,7 +27,7 @@ export default class PostsStore extends VuexModule {
       .catch(() => {
         globalMessageStore.setItem({
           message: MESSAGE.Error.FirestoreNotAvailable,
-          isError: true,
+          level: 'Error',
         })
         return []
       })

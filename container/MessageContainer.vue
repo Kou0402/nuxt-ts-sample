@@ -2,8 +2,7 @@
   <div>
     <MessageHeader
       v-if="globalMessage.message"
-      :message="globalMessage.message"
-      :is-error="globalMessage.isError"
+      :global-message="globalMessage"
     ></MessageHeader>
   </div>
 </template>

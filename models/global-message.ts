@@ -1,4 +1,6 @@
 export interface GlobalMessage {
   message?: string
-  isError?: boolean
+  level?: MessageLevel
 }
+
+type MessageLevel = 'Info' | 'Warn' | 'Error'
